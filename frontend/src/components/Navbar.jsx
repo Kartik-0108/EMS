@@ -6,16 +6,21 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-white/60 bg-white/75 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-20 border-b border-white/60 bg-white/70 backdrop-blur-xl">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-teal-700">
             Employee Management System
+          </p>
+          <p className="mt-1 text-sm leading-6 text-slate-500">
+            {user?.role === "employee"
+              ? "Track your work and profile details."
+              : "Manage people, tasks, and attendance from one place."}
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="hidden rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-right shadow-sm sm:block">
+        <div className="flex w-full items-center justify-between gap-3 md:w-auto md:justify-end">
+          <div className="rounded-2xl border border-white/80 bg-white/80 px-4 py-2 text-left shadow-sm backdrop-blur sm:text-right">
             <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
               Signed in
             </p>
@@ -24,10 +29,7 @@ const Navbar = () => {
             </p>
           </div>
 
-          <button
-            onClick={logout}
-            className="secondary-btn px-4 py-2"
-          >
+          <button onClick={logout} className="secondary-btn px-4 py-2">
             Logout
           </button>
         </div>

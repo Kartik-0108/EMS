@@ -89,54 +89,65 @@ const Tasks = () => {
 
   return (
     <Layout>
-      <section className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
-        <div>
-          <h1 className="page-title">{pageTitle}</h1>
-          <p className="page-subtitle">{pageSubtitle}</p>
-        </div>
+      <section className="hero-banner animate-rise">
+        <div className="section-header mb-0">
+          <div>
+            <p className="hero-kicker">
+              {canReviewAllTasks ? "Team execution" : "Personal workflow"}
+            </p>
+            <h1 className="page-title">{pageTitle}</h1>
+            <p className="hero-copy">{pageSubtitle}</p>
+          </div>
 
-        <div className="flex flex-wrap gap-3">
-          {filterOptions.map((filter) => {
-            const isActive = activeFilter === filter.id;
-
-            return (
-              <button
-                key={filter.id}
-                type="button"
-                onClick={() => setActiveFilter(filter.id)}
-                className={
-                  isActive
-                    ? "primary-btn px-4 py-2"
-                    : "secondary-btn px-4 py-2"
-                }
-              >
-                {filter.label} ({filter.count})
-              </button>
-            );
-          })}
+          <div className="hero-metrics">
+            <span className="metric-chip">Visible: {loading ? "--" : totalTasks}</span>
+            <span className="metric-chip">
+              In progress: {loading ? "--" : inProgressTasks}
+            </span>
+            <span className="metric-chip">
+              Completed: {loading ? "--" : completedTasks}
+            </span>
+          </div>
         </div>
       </section>
 
-      <section className="mb-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        <div className="stat-card">
+      <section className="mt-6 flex flex-wrap gap-3 animate-rise-delay-1">
+        {filterOptions.map((filter) => {
+          const isActive = activeFilter === filter.id;
+
+          return (
+            <button
+              key={filter.id}
+              type="button"
+              onClick={() => setActiveFilter(filter.id)}
+              className={isActive ? "primary-btn px-4 py-2" : "secondary-btn px-4 py-2"}
+            >
+              {filter.label} ({filter.count})
+            </button>
+          );
+        })}
+      </section>
+
+      <section className="mb-8 mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="stat-card animate-rise-delay-1">
           <p className="text-sm font-medium text-slate-500">Visible tasks</p>
           <p className="mt-4 text-4xl font-semibold text-slate-900">
             {loading ? "--" : totalTasks}
           </p>
         </div>
-        <div className="stat-card">
+        <div className="stat-card animate-rise-delay-1">
           <p className="text-sm font-medium text-slate-500">Pending</p>
           <p className="mt-4 text-4xl font-semibold text-slate-700">
             {loading ? "--" : pendingTasks}
           </p>
         </div>
-        <div className="stat-card">
+        <div className="stat-card animate-rise-delay-2">
           <p className="text-sm font-medium text-slate-500">In progress</p>
           <p className="mt-4 text-4xl font-semibold text-amber-600">
             {loading ? "--" : inProgressTasks}
           </p>
         </div>
-        <div className="stat-card">
+        <div className="stat-card animate-rise-delay-2">
           <p className="text-sm font-medium text-slate-500">Completed</p>
           <p className="mt-4 text-4xl font-semibold text-emerald-600">
             {loading ? "--" : completedTasks}
@@ -144,7 +155,7 @@ const Tasks = () => {
         </div>
       </section>
 
-      <section className="panel overflow-hidden">
+      <section className="panel animate-rise-delay-2 overflow-hidden">
         {errorMessage && (
           <div className="border-b border-slate-200 px-6 py-4">
             <div className="feedback-banner feedback-banner-error">
@@ -156,6 +167,9 @@ const Tasks = () => {
         <div className="border-b border-slate-200/80 px-6 py-5">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div>
+              <p className="hero-kicker">
+                {canReviewAllTasks ? "Team progress" : "Your task list"}
+              </p>
               <h2 className="text-2xl font-semibold text-slate-900">
                 {canReviewAllTasks ? "Team progress" : "Your task list"}
               </h2>

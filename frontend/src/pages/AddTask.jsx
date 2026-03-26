@@ -74,14 +74,15 @@ const AddTask = () => {
 
   return (
     <Layout>
-      <section className="mb-8">
+      <section className="hero-banner animate-rise">
+        <p className="hero-kicker">Task assignment</p>
         <h1 className="page-title">Assign Task</h1>
-        <p className="page-subtitle">
+        <p className="hero-copy">
           Create a task, add context, and assign it to the right employee.
         </p>
       </section>
 
-      <section className="panel relative z-20 max-w-3xl overflow-visible p-6 sm:p-8">
+      <section className="panel animate-rise-delay-1 relative z-20 mt-6 max-w-3xl overflow-visible p-6 sm:p-8">
         <form onSubmit={handleSubmit} className="space-y-5">
           {errorMessage && (
             <div className="feedback-banner feedback-banner-error">

@@ -21,18 +21,19 @@ const Profile = () => {
 
   return (
     <Layout>
-      <section className="mb-8">
+      <section className="hero-banner animate-rise">
+        <p className="hero-kicker">Personal workspace</p>
         <h1 className="page-title">Profile</h1>
-        <p className="page-subtitle">
+        <p className="hero-copy">
           Review your account details and assigned role in the workspace.
         </p>
       </section>
 
       {user && (
-        <section className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-          <div className="panel overflow-hidden bg-slate-950 text-white">
-            <div className="bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_30%),linear-gradient(135deg,#020617,#0f172a_55%,#134e4a)] p-8">
-              <p className="text-xs uppercase tracking-[0.24em] text-cyan-300/80">
+        <section className="mt-6 grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+          <div className="panel animate-rise overflow-hidden bg-slate-950 text-white">
+            <div className="bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.22),transparent_30%),linear-gradient(135deg,#041514,#0f172a_55%,#134e4a)] p-8">
+              <p className="text-xs uppercase tracking-[0.24em] text-teal-200/80">
                 Account Summary
               </p>
               <div className="mt-8 flex items-start justify-between gap-4">
@@ -52,14 +53,14 @@ const Profile = () => {
               <h2 className="mt-8 text-3xl font-semibold">{user.name}</h2>
               <p className="mt-2 text-slate-300">{user.email}</p>
 
-              <div className="mt-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold capitalize text-cyan-200">
+              <div className="mt-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-semibold capitalize text-teal-100">
                 {user.role}
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
-            <div className="panel p-6 sm:p-8">
+            <div className="panel animate-rise-delay-1 p-6 sm:p-8">
               <h2 className="text-2xl font-semibold text-slate-900">
                 Personal Details
               </h2>
@@ -109,19 +110,19 @@ const Profile = () => {
             </div>
 
             <div className="grid gap-5 sm:grid-cols-3">
-              <div className="stat-card">
+              <div className="stat-card animate-rise-delay-1">
                 <p className="text-sm font-medium text-slate-500">Role type</p>
                 <p className="mt-4 text-2xl font-semibold capitalize text-slate-900">
                   {user.role}
                 </p>
               </div>
-              <div className="stat-card">
+              <div className="stat-card animate-rise-delay-2">
                 <p className="text-sm font-medium text-slate-500">Status</p>
                 <p className="mt-4 text-2xl font-semibold text-emerald-600">
                   Active
                 </p>
               </div>
-              <div className="stat-card">
+              <div className="stat-card animate-rise-delay-2">
                 <p className="text-sm font-medium text-slate-500">Profile</p>
                 <p className="mt-4 text-2xl font-semibold text-slate-900">
                   Ready

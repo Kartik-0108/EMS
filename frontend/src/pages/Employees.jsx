@@ -47,26 +47,39 @@ const Employees = () => {
 
   return (
     <Layout>
-      <section className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <h1 className="page-title">Employees</h1>
-          <p className="page-subtitle">
-            Review team records, update details, and keep your roster current.
-          </p>
+      <section className="hero-banner animate-rise">
+        <div className="section-header mb-0">
+          <div>
+            <p className="hero-kicker">Team directory</p>
+            <h1 className="page-title">Employees</h1>
+            <p className="hero-copy">
+              Review team records, update details, and keep your roster current.
+            </p>
+          </div>
+
+          <div className="hero-metrics">
+            <span className="metric-chip">Total: {employees.length}</span>
+            <span className="metric-chip">
+              HR: {employees.filter((emp) => emp.role === "hr").length}
+            </span>
+            <span className="metric-chip">
+              Employees: {employees.filter((emp) => emp.role === "employee").length}
+            </span>
+          </div>
         </div>
 
         {user?.role === "admin" && (
           <button
             onClick={() => navigate("/add-employee")}
-            className="primary-btn"
+            className="primary-btn mt-6"
           >
             Add Employee
           </button>
         )}
       </section>
 
-      <section className="panel overflow-hidden">
-        <div className="overflow-x-auto">
+      <section className="panel animate-rise-delay-1 mt-6 overflow-hidden">
+        <div className="hidden overflow-x-auto md:block">
           <table className="data-table">
             <thead>
               <tr>
@@ -136,17 +149,11 @@ const Employees = () => {
                     ) : (
                       <>
                         <td>
-                          <div>
-                            <p className="font-semibold text-slate-900">
-                              {emp.name}
-                            </p>
-                          </div>
+                          <p className="font-semibold text-slate-900">{emp.name}</p>
                         </td>
                         <td>{emp.email}</td>
                         <td>
-                          <span className={roleBadgeClass(emp.role)}>
-                            {emp.role}
-                          </span>
+                          <span className={roleBadgeClass(emp.role)}>{emp.role}</span>
                         </td>
 
                         {user?.role === "admin" && (
@@ -184,6 +191,41 @@ const Employees = () => {
               )}
             </tbody>
           </table>
+        </div>
+
+        <div className="space-y-3 p-4 md:hidden">
+          {employees.length > 0 ? (
+            employees.map((emp) => (
+              <article key={emp._id} className="panel-soft px-4 py-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="font-semibold text-slate-900">{emp.name}</p>
+                    <p className="mt-1 break-all text-sm text-slate-500">{emp.email}</p>
+                  </div>
+                  <span className={roleBadgeClass(emp.role)}>{emp.role}</span>
+                </div>
+
+                {user?.role === "admin" && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <button
+                      onClick={() => startEdit(emp)}
+                      className="secondary-btn px-4 py-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(emp._id)}
+                      className="danger-btn px-4 py-2"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )}
+              </article>
+            ))
+          ) : (
+            <div className="empty-state py-10">No employees found.</div>
+          )}
         </div>
       </section>
     </Layout>

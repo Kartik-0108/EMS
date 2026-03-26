@@ -126,50 +126,60 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <section className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <h1 className="page-title">Dashboard Overview</h1>
-          <p className="page-subtitle">
-            A cleaner snapshot of workforce distribution and attendance trends.
-          </p>
+      <section className="hero-banner animate-rise">
+        <div className="section-header mb-0">
+          <div>
+            <p className="hero-kicker">Command center</p>
+            <h1 className="page-title">Dashboard Overview</h1>
+            <p className="hero-copy">
+              A clearer snapshot of workforce distribution, attendance trends,
+              and what needs attention today.
+            </p>
+          </div>
+
+          <div className="panel-soft px-5 py-4">
+            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+              Today
+            </p>
+            <p className="mt-2 text-lg font-semibold text-slate-900">{todayLabel}</p>
+          </div>
         </div>
 
-        <div className="panel-soft px-5 py-4">
-          <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-            Today
-          </p>
-          <p className="mt-2 text-lg font-semibold text-slate-900">{todayLabel}</p>
+        <div className="hero-metrics">
+          <span className="metric-chip">Employees: {loading ? "--" : employees.length}</span>
+          <span className="metric-chip">Present today: {loading ? "--" : todaysPresent}</span>
+          <span className="metric-chip">Absent today: {loading ? "--" : todaysAbsent}</span>
         </div>
       </section>
 
       {errorMessage && (
-        <section className="mb-6">
+        <section className="mt-6">
           <div className="feedback-banner feedback-banner-error">
             {errorMessage}
           </div>
         </section>
       )}
 
-      <section className="mb-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        <div className="stat-card">
+      <section className="mb-8 mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="stat-card animate-rise-delay-1">
           <p className="text-sm font-medium text-slate-500">Total employees</p>
           <p className="mt-4 text-4xl font-semibold text-slate-900">
             {loading ? "--" : employees.length}
           </p>
         </div>
-        <div className="stat-card">
+        <div className="stat-card animate-rise-delay-1">
           <p className="text-sm font-medium text-slate-500">Present today</p>
           <p className="mt-4 text-4xl font-semibold text-emerald-600">
             {loading ? "--" : todaysPresent}
           </p>
         </div>
-        <div className="stat-card">
+        <div className="stat-card animate-rise-delay-2">
           <p className="text-sm font-medium text-slate-500">Absent today</p>
           <p className="mt-4 text-4xl font-semibold text-rose-600">
             {loading ? "--" : todaysAbsent}
           </p>
         </div>
-        <div className="stat-card">
+        <div className="stat-card animate-rise-delay-2">
           <p className="text-sm font-medium text-slate-500">Marked today</p>
           <p className="mt-4 text-4xl font-semibold text-slate-900">
             {loading ? "--" : todaysAttendance.length}
@@ -178,8 +188,9 @@ const Dashboard = () => {
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-        <div className="panel p-6 sm:p-8">
+        <div className="panel animate-rise p-6 sm:p-8">
           <div className="mb-6">
+            <p className="hero-kicker">Team mix</p>
             <h2 className="text-2xl font-semibold text-slate-900">
               Employees by Role
             </h2>
@@ -206,8 +217,9 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="panel p-6 sm:p-8">
+        <div className="panel animate-rise-delay-1 p-6 sm:p-8">
           <div className="mb-6">
+            <p className="hero-kicker">Attendance mix</p>
             <h2 className="text-2xl font-semibold text-slate-900">
               Attendance Split
             </h2>
@@ -242,8 +254,9 @@ const Dashboard = () => {
       </section>
 
       <section className="mt-6 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-        <div className="panel p-6 sm:p-8">
+        <div className="panel animate-rise-delay-1 p-6 sm:p-8">
           <div className="mb-6">
+            <p className="hero-kicker">Live status</p>
             <h2 className="text-2xl font-semibold text-slate-900">
               Today&apos;s Attendance
             </h2>
@@ -263,7 +276,7 @@ const Dashboard = () => {
               {todaysAttendance.slice(0, 6).map((item) => (
                 <div
                   key={item._id}
-                  className="panel-soft flex items-center justify-between px-4 py-4"
+                  className="panel-soft flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
                 >
                   <div>
                     <p className="font-semibold text-slate-900">
@@ -288,9 +301,10 @@ const Dashboard = () => {
           )}
         </div>
 
-        <div className="panel p-6 sm:p-8">
+        <div className="panel animate-rise-delay-2 p-6 sm:p-8">
           <div className="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
+              <p className="hero-kicker">Monthly trend</p>
               <h2 className="text-2xl font-semibold text-slate-900">
                 Monthly Attendance Report
               </h2>
@@ -300,7 +314,7 @@ const Dashboard = () => {
               </p>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <div className="panel-soft px-4 py-3">
                 <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
                   Present

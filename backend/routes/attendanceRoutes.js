@@ -3,12 +3,12 @@ import {
   getAttendance,
   addAttendance,
 } from "../controllers/attendanceController.js";
-
-
+import { protect } from "../middleware/authMiddleware.js";
+import { authorizeRoles } from "../middleware/roleMiddleware.js";
 
 const router = express.Router();
 
-router.get("/",  getAttendance);
-router.post("/", addAttendance);
+router.get("/", protect, getAttendance);
+router.post("/", protect, authorizeRoles("admin", "hr"), addAttendance);
 
 export default router;

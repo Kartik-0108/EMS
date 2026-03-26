@@ -34,14 +34,15 @@ const AddEmployee = () => {
 
   return (
     <Layout>
-      <section className="mb-8">
+      <section className="hero-banner animate-rise">
+        <p className="hero-kicker">New team member</p>
         <h1 className="page-title">Add Employee</h1>
-        <p className="page-subtitle">
+        <p className="hero-copy">
           Create a new employee record with the right team role.
         </p>
       </section>
 
-      <section className="panel max-w-2xl p-6 sm:p-8">
+      <section className="panel animate-rise-delay-1 mt-6 max-w-2xl p-6 sm:p-8">
         <form onSubmit={handleSubmit} className="space-y-5">
           {errorMessage && (
             <div className="feedback-banner feedback-banner-error">
@@ -83,7 +84,7 @@ const AddEmployee = () => {
           </div>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <button disabled={loading} className="success-btn">
+            <button disabled={loading} className="primary-btn">
               {loading ? "Adding..." : "Add Employee"}
             </button>
             <button
