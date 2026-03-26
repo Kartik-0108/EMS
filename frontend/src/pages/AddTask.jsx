@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../components/Layout";
 import SearchableSelect from "../components/SearchableSelect";
 import API from "../services/api";
 
@@ -73,7 +72,7 @@ const AddTask = () => {
   }));
 
   return (
-    <Layout>
+    <>
       <section className="hero-banner animate-rise">
         <p className="hero-kicker">Task assignment</p>
         <h1 className="page-title">Assign Task</h1>
@@ -138,12 +137,16 @@ const AddTask = () => {
             />
           </div>
 
-          <button disabled={saving || loadingEmployees} className="primary-btn">
+          <button
+            type="submit"
+            disabled={saving || loadingEmployees}
+            className="primary-btn"
+          >
             {saving ? "Assigning..." : "Assign Task"}
           </button>
         </form>
       </section>
-    </Layout>
+    </>
   );
 };
 

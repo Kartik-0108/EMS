@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import Layout from "../components/Layout";
 import API from "../services/api";
 import { AuthContext } from "../context/AuthContext";
 
@@ -88,7 +87,7 @@ const Tasks = () => {
     : "Track your assigned work and keep progress moving with clear status updates.";
 
   return (
-    <Layout>
+    <>
       <section className="hero-banner animate-rise">
         <div className="section-header mb-0">
           <div>
@@ -280,7 +279,7 @@ const Tasks = () => {
           </table>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

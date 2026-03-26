@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Layout from "../components/Layout";
 import { AuthContext } from "../context/AuthContext";
 
 const Profile = () => {
@@ -20,7 +19,7 @@ const Profile = () => {
         : "bg-emerald-100 text-emerald-700";
 
   return (
-    <Layout>
+    <>
       <section className="hero-banner animate-rise">
         <p className="hero-kicker">Personal workspace</p>
         <h1 className="page-title">Profile</h1>
@@ -132,7 +131,7 @@ const Profile = () => {
           </div>
         </section>
       )}
-    </Layout>
+    </>
   );
 };
 

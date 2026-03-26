@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Layout from "../components/Layout";
 import API from "../services/api";
 
 const AddEmployee = () => {
@@ -33,7 +32,7 @@ const AddEmployee = () => {
   };
 
   return (
-    <Layout>
+    <>
       <section className="hero-banner animate-rise">
         <p className="hero-kicker">New team member</p>
         <h1 className="page-title">Add Employee</h1>
@@ -84,7 +83,7 @@ const AddEmployee = () => {
           </div>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <button disabled={loading} className="primary-btn">
+            <button type="submit" disabled={loading} className="primary-btn">
               {loading ? "Adding..." : "Add Employee"}
             </button>
             <button
@@ -97,7 +96,7 @@ const AddEmployee = () => {
           </div>
         </form>
       </section>
-    </Layout>
+    </>
   );
 };
 

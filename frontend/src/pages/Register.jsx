@@ -116,7 +116,7 @@ const Register = () => {
           </select>
         </div>
 
-        <button disabled={loading} className="primary-btn mt-2 w-full">
+        <button type="submit" disabled={loading} className="primary-btn mt-2 w-full">
           {loading ? "Creating..." : "Create account"}
         </button>
 

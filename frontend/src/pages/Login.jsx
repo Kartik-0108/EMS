@@ -79,7 +79,7 @@ const Login = () => {
           />
         </div>
 
-        <button disabled={loading} className="primary-btn mt-2 w-full">
+        <button type="submit" disabled={loading} className="primary-btn mt-2 w-full">
           {loading ? "Signing in..." : "Login"}
         </button>
 

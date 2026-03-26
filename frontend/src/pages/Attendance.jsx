@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from "react";
-import Layout from "../components/Layout";
 import SearchableSelect from "../components/SearchableSelect";
 import API from "../services/api";
 
@@ -91,7 +90,7 @@ const Attendance = () => {
   }, [attendance]);
 
   return (
-    <Layout>
+    <>
       <section className="hero-banner animate-rise">
         <div className="section-header mb-0">
           <div>
@@ -294,7 +293,7 @@ const Attendance = () => {
           )}
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

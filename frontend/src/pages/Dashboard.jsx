@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../components/Layout";
 import API from "../services/api";
 
 import {
@@ -125,7 +124,7 @@ const Dashboard = () => {
   }));
 
   return (
-    <Layout>
+    <>
       <section className="hero-banner animate-rise">
         <div className="section-header mb-0">
           <div>
@@ -354,7 +353,7 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -9,91 +8,40 @@ import Employees from "./pages/Employees";
 import AddEmployee from "./pages/AddEmployee";
 import Attendance from "./pages/Attendance";
 import Profile from "./pages/Profile";
-import Tasks from "./pages/Tasks";          
-import AddTask from "./pages/AddTask";      
+import Tasks from "./pages/Tasks";
+import AddTask from "./pages/AddTask";
 
-// Components
+import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-
-        {/* Public Routes */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Dashboard */}
         <Route
-          path="/dashboard"
           element={
             <ProtectedRoute allowedRoles={["admin", "hr", "employee"]}>
-              <Dashboard />
+              <Layout />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/profile" element={<Profile />} />
 
-        {/* Employees (Admin + HR) */}
-        <Route
-          path="/employees"
-          element={
-            <ProtectedRoute allowedRoles={["admin", "hr"]}>
-              <Employees />
-            </ProtectedRoute>
-          }
-        />
+          <Route element={<ProtectedRoute allowedRoles={["admin", "hr"]} />}>
+            <Route path="/employees" element={<Employees />} />
+            <Route path="/add-task" element={<AddTask />} />
+            <Route path="/attendance" element={<Attendance />} />
 
-        {/* Add Employee (Admin only) */}
-        <Route
-          path="/add-employee"
-          element={
-            <ProtectedRoute allowedRoles={["admin"]}>
-              <AddEmployee />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* 🔥 Tasks (ALL users) */}
-        <Route
-          path="/tasks"
-          element={
-            <ProtectedRoute allowedRoles={["admin", "hr", "employee"]}>
-              <Tasks />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* 🔥 Assign Task (Admin + HR) */}
-        <Route
-          path="/add-task"
-          element={
-            <ProtectedRoute allowedRoles={["admin", "hr"]}>
-              <AddTask />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Attendance (optional now) */}
-        <Route
-          path="/attendance"
-          element={
-            <ProtectedRoute allowedRoles={["admin", "hr"]}>
-              <Attendance />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Profile */}
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute allowedRoles={["admin", "hr", "employee"]}>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
-
+            <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
+              <Route path="/add-employee" element={<AddEmployee />} />
+            </Route>
+          </Route>
+        </Route>
       </Routes>
     </Router>
   );

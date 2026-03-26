@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Layout from "../components/Layout";
 import { AuthContext } from "../context/AuthContext";
 import API from "../services/api";
 
@@ -46,7 +45,7 @@ const Employees = () => {
   };
 
   return (
-    <Layout>
+    <>
       <section className="hero-banner animate-rise">
         <div className="section-header mb-0">
           <div>
@@ -228,7 +227,7 @@ const Employees = () => {
           )}
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
