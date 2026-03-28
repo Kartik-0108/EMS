@@ -42,6 +42,13 @@ const AddEmployee = () => {
       </section>
 
       <section className="panel animate-rise-delay-1 mt-6 max-w-2xl p-6 sm:p-8">
+        <div className="mb-6">
+          <p className="hero-kicker">Employee details</p>
+          <p className="mt-2 text-sm text-slate-500">
+            Add the basics first. You can refine team data later from the employee list.
+          </p>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-5">
           {errorMessage && (
             <div className="feedback-banner feedback-banner-error">
@@ -82,14 +89,14 @@ const AddEmployee = () => {
             </select>
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-2">
-            <button type="submit" disabled={loading} className="primary-btn">
+          <div className="form-actions">
+            <button type="submit" disabled={loading} className="primary-btn w-full sm:w-auto">
               {loading ? "Adding..." : "Add Employee"}
             </button>
             <button
               type="button"
               onClick={() => navigate("/employees")}
-              className="secondary-btn"
+              className="secondary-btn w-full sm:w-auto"
             >
               Back
             </button>

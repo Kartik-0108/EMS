@@ -82,6 +82,13 @@ const AddTask = () => {
       </section>
 
       <section className="panel animate-rise-delay-1 relative z-20 mt-6 max-w-3xl overflow-visible p-6 sm:p-8">
+        <div className="mb-6">
+          <p className="hero-kicker">Assignment details</p>
+          <p className="mt-2 text-sm text-slate-500">
+            Give the task a clear title and enough context so the assignee can start quickly.
+          </p>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-5">
           {errorMessage && (
             <div className="feedback-banner feedback-banner-error">
@@ -140,7 +147,7 @@ const AddTask = () => {
           <button
             type="submit"
             disabled={saving || loadingEmployees}
-            className="primary-btn"
+            className="primary-btn w-full sm:w-auto"
           >
             {saving ? "Assigning..." : "Assign Task"}
           </button>

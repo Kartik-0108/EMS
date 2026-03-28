@@ -30,16 +30,16 @@ const Profile = () => {
 
       {user && (
         <section className="mt-6 grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-          <div className="panel animate-rise overflow-hidden bg-slate-950 text-white">
-            <div className="bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.22),transparent_30%),linear-gradient(135deg,#041514,#0f172a_55%,#134e4a)] p-8">
+          <div className="panel animate-rise overflow-hidden border-white/10 bg-slate-950/80 text-white backdrop-blur-2xl">
+            <div className="bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.22),transparent_30%),linear-gradient(135deg,rgba(4,21,20,0.96),rgba(15,23,42,0.92)_55%,rgba(19,78,74,0.86))] p-8">
               <p className="text-xs uppercase tracking-[0.24em] text-teal-200/80">
                 Account Summary
               </p>
               <div className="mt-8 flex items-start justify-between gap-4">
-                <div className="flex h-24 w-24 items-center justify-center rounded-[2rem] border border-white/10 bg-white/10 text-4xl font-semibold">
+                <div className="flex h-24 w-24 items-center justify-center rounded-[2rem] border border-white/15 bg-white/10 text-4xl font-semibold shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-xl">
                   {user.name?.charAt(0)}
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-right">
+                <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-right backdrop-blur-xl">
                   <p className="text-xs uppercase tracking-[0.18em] text-slate-300">
                     Today
                   </p>

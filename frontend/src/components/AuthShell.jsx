@@ -38,13 +38,15 @@ const AuthShell = ({
         )}
 
         <section className="auth-form-panel">
-          <div className="auth-form-copy">
-            <p className="auth-eyebrow text-slate-500">{eyebrow}</p>
-            <h2 className="auth-form-title">{title}</h2>
-            <p className="auth-form-description">{description}</p>
-          </div>
+          <div className="panel-soft w-full max-w-lg px-5 py-6 sm:px-6 sm:py-7">
+            <div className="auth-form-copy">
+              <p className="auth-eyebrow text-slate-500">{eyebrow}</p>
+              <h2 className="auth-form-title">{title}</h2>
+              <p className="auth-form-description">{description}</p>
+            </div>
 
-          {children}
+            {children}
+          </div>
         </section>
       </div>
     </div>

@@ -41,6 +41,7 @@ const Login = () => {
 
   return (
     <AuthShell
+      showAside={false}
       eyebrow="Welcome back"
       title="Sign in"
       description="Use your account to continue to the dashboard."

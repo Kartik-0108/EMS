@@ -110,7 +110,7 @@ const Tasks = () => {
         </div>
       </section>
 
-      <section className="mt-6 flex flex-wrap gap-3 animate-rise-delay-1">
+      <section className="panel-soft animate-rise-delay-1 mt-6 flex flex-wrap gap-3 px-4 py-4 sm:px-5">
         {filterOptions.map((filter) => {
           const isActive = activeFilter === filter.id;
 
@@ -156,14 +156,14 @@ const Tasks = () => {
 
       <section className="panel animate-rise-delay-2 overflow-hidden">
         {errorMessage && (
-          <div className="border-b border-slate-200 px-6 py-4">
+          <div className="border-b border-white/40 px-6 py-4">
             <div className="feedback-banner feedback-banner-error">
               {errorMessage}
             </div>
           </div>
         )}
 
-        <div className="border-b border-slate-200/80 px-6 py-5">
+        <div className="border-b border-white/40 px-6 py-5">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="hero-kicker">
@@ -179,7 +179,7 @@ const Tasks = () => {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500">
+            <div className="rounded-2xl border border-white/60 bg-white/35 px-4 py-3 text-sm text-slate-500 backdrop-blur-xl">
               Showing {loading ? "..." : filteredTasks.length} of{" "}
               {loading ? "..." : totalTasks} tasks
             </div>

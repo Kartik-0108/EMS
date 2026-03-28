@@ -102,7 +102,7 @@ const Attendance = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 xl:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
             <div className="panel-soft px-4 py-4">
               <p className="text-xs uppercase tracking-[0.16em] text-slate-400">
                 Total records
@@ -155,7 +155,7 @@ const Attendance = () => {
           </div>
         )}
 
-        <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_auto_auto] xl:items-end">
+        <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto_auto] md:items-end">
           <div>
             <SearchableSelect
               label="Select employee"
@@ -192,7 +192,7 @@ const Attendance = () => {
       </section>
 
       <section className="panel animate-rise-delay-1 overflow-hidden">
-        <div className="border-b border-slate-200/80 px-6 py-5">
+        <div className="border-b border-white/40 px-6 py-5">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="hero-kicker">Recent records</p>
@@ -204,7 +204,7 @@ const Attendance = () => {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500">
+            <div className="glass-inline-note">
               Showing {loadingData ? "..." : attendance.length} records
             </div>
           </div>
